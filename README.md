@@ -1,6 +1,6 @@
 # Meltano ELT
 
-This is a Meltano project template intended for execution by [meltano-fargate-cloudformation](https://github.com/HealthEngineAU/meltano-fargate-cloudformation).
+This is a Meltano project template intended for execution by [meltano-fargate-cloudformation](https://github.com/chriskl/meltano-fargate-cloudformation).
 
 ## Environment Setup
 
