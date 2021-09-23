@@ -1,0 +1,21 @@
+version: 0.2
+env:
+  secrets-manager:
+    DOCKER_HUB_USERNAME: docker-hub:username
+    DOCKER_HUB_PASSWORD: docker-hub:password
+phases:
+  install:
+    runtime-versions:
+      python: 3.7
+  pre_build:
+    commands:
+      - aws --version
+      - echo "$DOCKER_HUB_PASSWORD" | docker login --username "$DOCKER_HUB_USERNAME" --password-stdin
+      - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
+  build:
+    commands:
+      - docker build -t $REPOSITORY_URI .
+      - docker tag $REPOSITORY_URI $REPOSITORY_URI
+  post_build:
+    commands:
+      - docker push $REPOSITORY_URI
