@@ -1,5 +1,7 @@
 # HeglthEngine Meltano ELT
 
+This is a Meltano project template intended for execution by [meltano-fargate-cloudformation](https://github.com/HealthEngineAU/meltano-fargate-docker).
+
 ## Environment Setup
 
 First set up `pyenv` if you do not have it installed:
