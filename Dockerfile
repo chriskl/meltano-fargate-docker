@@ -4,9 +4,9 @@ FROM $MELTANO_IMAGE
 WORKDIR /project
 
 # Install chamber
-RUN curl -s https://packagecloud.io/install/repositories/segment/chamber/script.deb.sh | /bin/bash \
-    && apt-get install -y chamber \
-    && apt-get clean
+ENV chamber_version=2.10.6
+RUN wget https://github.com/segmentio/chamber/releases/download/v${chamber_version}/chamber-v${chamber_version}-linux-amd64 -O /bin/chamber \
+        && chmod +x /bin/chamber
 
 # Install any additional requirements
 COPY ./requirements.txt . 
