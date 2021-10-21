@@ -1,4 +1,4 @@
-ARG MELTANO_IMAGE=meltano/meltano:v1.80.0-python3.8
+ARG MELTANO_IMAGE=meltano/meltano:latest-python3.8
 FROM $MELTANO_IMAGE
 
 WORKDIR /project
