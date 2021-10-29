@@ -1,4 +1,4 @@
-ARG MELTANO_IMAGE=meltano/meltano:latest-python3.8
+ARG MELTANO_IMAGE=meltano/meltano:v1.86.0
 FROM $MELTANO_IMAGE
 
 WORKDIR /project
@@ -10,7 +10,8 @@ RUN wget https://github.com/segmentio/chamber/releases/download/v${chamber_versi
 
 # Install any additional requirements
 COPY ./requirements.txt . 
-RUN pip install -r requirements.txt
+RUN pip install --upgrade pip \
+        && pip install -r requirements.txt
 
 # Install all plugins into the `.meltano` directory
 COPY ./meltano.yml . 
